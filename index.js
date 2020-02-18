@@ -11,8 +11,6 @@ const port = 8000
 const logger = require('./middleware/logger')
 
 
-
-
 // built in middleware
 server.use(express.json()) 
 //custom middleware that uses logger
