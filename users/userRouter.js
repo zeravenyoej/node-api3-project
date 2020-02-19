@@ -10,9 +10,12 @@ router.post('/', validateUser(), (req, res, next) => {
     .catch(err => next(err))
 });
 
-//THIS DOESN"T WORK 
 router.post('/:id/posts', validateUserId(), validatePost(), (req, res, next) => {
-  postDB.insert(req.body)
+  const newPost = {
+    ...req.body,
+    user_id: req.params.id
+  }
+  postDB.insert(newPost)
     .then(response => res.json(response))
     .catch(err => next(err))
 });
