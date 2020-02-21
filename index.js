@@ -13,11 +13,10 @@ DONE 9. In userRouter, how do the post requests differ from one another?
 
 const express = require("express")
 const server = express()
-const port = 8000
+const port = process.env.PORT || 8000
 const logger = require('./middleware/logger')
 const postRouter = require("./posts/postRouter")
 const userRouter = require("./users/userRouter");
-
 
 
 server.use(express.json()) 
