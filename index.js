@@ -22,6 +22,10 @@ const userRouter = require("./users/userRouter");
 
 server.use(express.json()) 
 server.use(logger("short"))
+//welcome route
+server.get('/', (req, res) => {
+    res.send("<h1>Welcome</h1><h2>Try 'posts' and 'users' routes</h2>")
+})
 server.use("/posts", postRouter)
 server.use("/users", userRouter)
 // custom middleware in case the route does not exist
